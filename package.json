@@ -1,0 +1,17 @@
+{
+  "name": "realtime-analytics-backend",
+  "version": "1.0.0",
+  "description": "Real-time analytics backend with REST and WebSocket (Node.js)",
+  "main": "source/server.js",
+  "scripts": {
+    "start": "node source/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "ws": "^8.18.1"
+  }
+}
