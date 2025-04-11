@@ -32,11 +32,6 @@ function setupWebSocket(server) {
     wss.on('connection', (ws) => {
         const path = ws._path;
 
-        // Send a welcome message only once
-        ws.send(JSON.stringify({
-            message: 'Welcome to the Real-Time Analytics API'
-        }));
-
         if (path === '/api/analytics') {
             const sendData = () => {
                 const data = generateMockData();
@@ -50,6 +45,11 @@ function setupWebSocket(server) {
                 clearInterval(interval);
                 console.log(`WebSocket disconnected on ${path}`);
             });
+        } else {
+            // Send a welcome message in case of invalid path
+            ws.send(JSON.stringify({
+                message: 'Welcome to the Real-Time Analytics API'
+            }));
         }
 
         ws.on('error', (err) => {
